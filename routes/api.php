@@ -37,7 +37,8 @@ Route::get('transaction/{transaction_id}', 'TransactionController@show');
 
 Route::get('transaction/{account_id}/account', 'TransactionController@showAccountTransactions');
 
-Route::post('transaction', 'TransactionController@store');
+Route::post('transaction', 'TransactionController@store',  ['middleware' => 'cors']);
+
 
  
 Route::get('products/{product}', function ($productId) {
