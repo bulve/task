@@ -15,9 +15,30 @@ use Illuminate\Http\Request;
 
 
 
-Route::get('products', function () {
-    return response(Product::all(),200);
-});
+Route::get('clients', 'ClientController@index' );
+
+Route::get('client/{client_id}', 'ClientController@show');
+
+Route::post('client', 'ClientController@store');
+
+Route::get('account/{client_id}/client', 'AccountController@showClientAccount');
+
+Route::get('account/{account_id}/dietails', 'AccountController@showAccountDietails');
+
+Route::get('accounts', 'AccountController@index' );
+
+Route::get('account/{account_id}', 'AccountController@show');
+
+Route::post('account', 'AccountController@store');
+
+Route::get('transactions', 'TransactionController@index' );
+
+Route::get('transaction/{transaction_id}', 'TransactionController@show');
+
+Route::get('transaction/{account_id}/account', 'TransactionController@showAccountTransactions');
+
+Route::post('transaction', 'TransactionController@store');
+
  
 Route::get('products/{product}', function ($productId) {
     return response(Product::find($productId), 200);

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\client;
+use App\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +16,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        return Client::all();
     }
 
     /**
@@ -35,18 +37,20 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = Client::create($request->all());
+ 
+        return response()->json($client, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\client  $client
+     * @param  $client_id
      * @return \Illuminate\Http\Response
      */
-    public function show(client $client)
+    public function show($client_id)
     {
-        //
+        return Client::find($client_id);
     }
 
     /**

@@ -1,5 +1,4 @@
-<?php
-
+<?php header('Access-Control-Allow-Origin: *');
 /*
 |--------------------------------------------------------------------------
 | Create The Application
